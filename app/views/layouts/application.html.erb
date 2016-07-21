@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Homepage</title>
+    <title>mawiegand</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+
+    <div class="container">
+      <%= flash_messages %>
+        
+      <%= yield %>
+    </div>
   </body>
 </html>
