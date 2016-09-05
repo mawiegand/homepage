@@ -38,6 +38,9 @@ end
 
 group :production do
   gem 'pg'
+  
+  # Use unicorn as the app server
+  gem 'unicorn'
 end
 
 group :development, :test do
@@ -56,6 +59,7 @@ group :development do
   
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
+  gem 'highline'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
