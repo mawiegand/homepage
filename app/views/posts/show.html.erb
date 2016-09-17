@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<article class="card card-inverse card-primary post-card">
+  <div class="card-header">
+    <h1 class="card-title"><%= @post.title %></h1>
+    <h2 class="card-subtitle text-muted">Submitted <%= @post.created_at.strftime("%d. %B %Y") %></h2>
+  </div>
+  <div class="card-block">
+    <p class="card-text"><%= @post.body %></p>
+  </div>
+  <footer class="card-footer">
+    <small class="text-muted">Last updated <%= time_ago_in_words(@post.updated_at) %> ago</small>
+    <div class="actions">
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(@post), class: 'btn-sm btn-primary' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), @post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn-sm btn-danger' %>
+    </div>
+  </footer>
+</article>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")), posts_path, class: 'btn btn-primary' %>

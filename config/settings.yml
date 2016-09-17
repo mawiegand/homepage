@@ -1,0 +1,15 @@
+defaults: &defaults
+  registration_is_enabled: false
+  count_of_posts_on_index_page: 3
+  post_preview_sign_length: 250
+
+development:
+  <<: *defaults
+  registration_is_enabled: true
+
+test:
+  <<: *defaults
+  registration_is_enabled: true
+
+production:
+  <<: *defaults

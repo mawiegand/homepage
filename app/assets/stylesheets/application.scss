@@ -17,3 +17,48 @@
 .top-navbar {
   margin-bottom: 1rem!important;
 }
+
+.colored-card {
+  background-color: #333;
+  border-color: #333;
+}
+
+.post-card,
+.post-card-preview {
+  @extend .colored-card;
+
+  .actions {
+    text-align: right !important;
+    float: right;
+  }
+}
+
+.post-card {
+  .card-header {
+    h1 {
+      color: #0275d8;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.post-card-preview {
+  min-height: 17rem;
+
+  .card-header {
+    h2 {
+      color: #0275d8;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  .card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

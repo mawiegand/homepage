@@ -4,23 +4,7 @@
   <div class="row">
     <% slice.each do |post| %>
       <div class="col-md-6">
-        <div class="card card-inverse card-primary" style="background-color: #333; border-color: #333;">
-          <div class="card-header">
-            <h4 class="card-title"><%= post.title %></h4>
-            <h6 class="card-subtitle text-muted">Submitted <%= post.created_at.strftime("%d. %B %Y") %></h6>
-          </div>
-          <div class="card-block">
-            <p class="card-text"><%= post.body.truncate(400) %></p>
-            <footer>
-              <small class="text-muted">Last updated <%= time_ago_in_words(post.updated_at) %> ago</small>
-              <div class="text-xs-right">
-                <%= link_to 'Show', post, class: 'btn-sm btn-primary' %>
-                <%= link_to 'Edit', edit_post_path(post), class: 'btn-sm btn-primary' %>
-                <%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn-sm btn-primary' %>
-              </div>
-            </footer>
-          </div>
-        </div>
+        <%= render 'post_preview', post: post %>
       </div>
     <% end %>
   </div>
@@ -28,4 +12,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path, class: 'btn-sm btn-primary' %>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
