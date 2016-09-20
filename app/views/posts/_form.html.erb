@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, t('.title'), :class => 'col-form-label' %>
+    <%= f.text_field :title, :class => 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :body, t('.body'), :class => 'col-form-label' %>
+    <%= f.text_area :body, :rows => 20, :class => 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn btn-secondary' %>
   </div>
 <% end %>
