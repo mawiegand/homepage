@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  SETTINGS['registration_is_enabled'] ? (devise_for :users) : (devise_for :users, skip: [:registrations])
   root 'home#show'
   resources :posts
 
