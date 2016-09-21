@@ -10,4 +10,5 @@
 admin_user = User.new
 admin_user.email = 'admin@localhost.localhost'
 admin_user.password = '12345678'
+admin_user.add_role :admin
 admin_user.save!

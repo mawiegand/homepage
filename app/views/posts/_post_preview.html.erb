@@ -8,7 +8,7 @@
   </div>
   <footer class="card-footer">
     <small class="text-muted">Last updated <%= time_ago_in_words(post.updated_at) %> ago</small>
-    <% if user_signed_in? %>
+    <% if can? :manage, post %>
       <div class="actions">
         <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), class: 'btn-sm btn-primary' %>
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")), post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn-sm btn-danger' %>
