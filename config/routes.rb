@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       delete 'users/cancel' => 'devise/registrations#cancel', :as => 'cancel_user_registration'
       get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
       patch 'users' => 'devise/registrations#update', :as => 'user_registration'
+      put 'users' => 'devise/registrations#update', :as => ''
       delete 'users' => 'devise/registrations#destroy', :as => ''
     end
   end
