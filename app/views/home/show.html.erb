@@ -7,8 +7,30 @@
       <div class="card-block">
         <h4 class="card-title">Marcel Wiegand</h4>
         <p class="card-text">I am a software developer and student of Computer Science.</p>
-        <a href="#" class="btn btn-info-outline">About me</a>
+        <a href="#" class="btn btn-outline-info">About me</a>
       </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div id="latest-posts" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% @posts.each_with_index do |post, index| %>
+          <%= content_tag(:li, nil, data: { target: '#latest-posts', slide_to: index }, class: index == 0 ? 'active' : nil) %>
+        <% end %>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <% @posts.each_with_index do |post, index| %>
+          <%= content_tag(:div, render('posts/post_preview', post: post), class: ['carousel-item', index == 0 ? 'active' : nil]) %>
+        <% end %>
+      </div>
+      <a class="left carousel-control" href="#latest-posts" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#latest-posts" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
 </div>
