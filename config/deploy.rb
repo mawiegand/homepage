@@ -34,3 +34,23 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+namespace :deploy do
+  desc "Restart service"
+  task :restart do
+    on roles(:all) do
+      execute :svc, '-du ~/service/homepage'
+    end
+  end
+end
+
+namespace :print do
+  desc "Print environment variables"
+  task :environment do
+    on roles(:all) do
+      execute :printenv
+    end
+  end
+end
+
+after 'deploy', 'deploy:restart'
