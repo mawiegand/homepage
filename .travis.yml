@@ -4,7 +4,9 @@ rvm:
 gemfile:
   - Gemfile
 sudo: false
-script: bundle exec rails test
+script:
+  - bundle exec rails db:test:prepare
+  - bundle exec rails test
 notifications:
   email:
   - marcel@bluepanel.org
