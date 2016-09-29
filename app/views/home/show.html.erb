@@ -7,7 +7,7 @@
       <div class="card-block">
         <h4 class="card-title">Marcel Wiegand</h4>
         <p class="card-text">I am a software developer and student of Computer Science.</p>
-        <a href="#" class="btn btn-outline-info">About me</a>
+        <%= link_to 'About me', about_path, class: 'btn btn-outline-info' %>
       </div>
       <div class="card-footer social-links">
         <%= link_to icon('github', class: 'fa-2x', 'aria-hidden' => true), 'https://github.com/' + SETTINGS['github_username'], 'aria-label' => 'Github' %>
