@@ -12,11 +12,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    sign_in @admin
-
+  test "should redirect instead of getting new" do
     get new_post_url
-    assert_response :success
+    assert_redirected_to new_user_session_path
   end
 
   test "should not get new" do
@@ -24,6 +22,27 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     exception = assert_raise(CanCan::AccessDenied) {
       get new_post_url
+    }
+    assert_equal 'You are not authorized to access this page.', exception.message
+  end
+
+  test "should get new" do
+    sign_in @admin
+
+    get new_post_url
+    assert_response :success
+  end
+
+  test "should redirect instead of creating new post" do
+    post posts_url, params: { post: { content: @post.content, title: @post.title } }
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should not create post" do
+    sign_in @user
+
+    exception = assert_raise(CanCan::AccessDenied) {
+      post posts_url, params: { post: { content: @post.content, title: @post.title } }
     }
     assert_equal 'You are not authorized to access this page.', exception.message
   end
@@ -38,25 +57,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(Post.first)
   end
 
-  test "should not create post" do
-    sign_in @user
-
-    exception = assert_raise(CanCan::AccessDenied) {
-      post posts_url, params: { post: { content: @post.content, title: @post.title } }
-    }
-    assert_equal 'You are not authorized to access this page.', exception.message
-  end
-
   test "should show post" do
     get post_url(@post)
     assert_response :success
   end
 
-  test "should get edit" do
-    sign_in @admin
-
+  test "should redirect instead of editing post" do
     get edit_post_url(@post)
-    assert_response :success
+    assert_redirected_to new_user_session_path
   end
 
   test "should not get edit" do
@@ -68,11 +76,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'You are not authorized to access this page.', exception.message
   end
 
-  test "should update post" do
+  test "should get edit" do
     sign_in @admin
 
+    get edit_post_url(@post)
+    assert_response :success
+  end
+
+  test "should redirect instead of updating post" do
     patch post_url(@post), params: { post: { content: @post.content, title: @post.title } }
-    assert_redirected_to post_url(@post)
+    assert_redirected_to new_user_session_path
   end
 
   test "should not update post" do
@@ -80,6 +93,27 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     exception = assert_raise(CanCan::AccessDenied) {
       patch post_url(@post), params: { post: { content: @post.content, title: @post.title } }
+    }
+    assert_equal 'You are not authorized to access this page.', exception.message
+  end
+
+  test "should update post" do
+    sign_in @admin
+
+    patch post_url(@post), params: { post: { content: @post.content, title: @post.title } }
+    assert_redirected_to post_url(@post)
+  end
+
+  test "should redirect instead of destroying post" do
+    delete post_url(@post)
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should not destroy post" do
+    sign_in @user
+
+    exception = assert_raise(CanCan::AccessDenied) {
+      delete post_url(@post)
     }
     assert_equal 'You are not authorized to access this page.', exception.message
   end
@@ -92,14 +126,5 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to posts_url
-  end
-
-  test "should not destroy post" do
-    sign_in @user
-
-    exception = assert_raise(CanCan::AccessDenied) {
-      delete post_url(@post)
-    }
-    assert_equal 'You are not authorized to access this page.', exception.message
   end
 end
