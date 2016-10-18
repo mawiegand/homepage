@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   resourcify
   validates_presence_of :title, :content
   default_scope { order('created_at DESC') }
+  has_and_belongs_to_many :tags
 
   def content_preview
     content.truncate(SETTINGS['post_preview_sign_length']).bbcode_to_html unless content.nil?
