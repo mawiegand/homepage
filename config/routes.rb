@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   root 'home#show'
   resources :posts
+  get 'posts/tags/:tag', to: 'posts#index', :as => 'tag'
   get 'about' => 'static_pages#about', :as => 'about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

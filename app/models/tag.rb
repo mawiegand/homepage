@@ -1,6 +1,11 @@
 class Tag < ApplicationRecord
   resourcify
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 
-  has_and_belongs_to_many :posts
+  has_many :taggings
+  has_many :posts, through: :taggings
+
+  def self.counts
+    self.select("name, count(taggings.tag_id) as count").joins(:taggings).group("taggings.tag_id")
+  end
 end
