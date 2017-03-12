@@ -8,8 +8,16 @@
     <% end %>
   </div>
   <div class="col-md-2 blog-sidebar">
+    <div class="sidebar-module categories">
+      <h4>Categories</h4>
+      <ul class="list-unstyled">
+        <% Category.all.each do |category| %>
+          <%= link_to content_tag(:li, category.name, class: []), category_path(category.name) %>
+        <% end %>
+      </ul>
+    </div>
     <div class="sidebar-module tags-cloud">
-      <h3>Tags</h3>
+      <h4>Tags</h4>
       <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>

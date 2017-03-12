@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   default_scope { order('created_at DESC') }
   has_many :taggings
   has_many :tags, through: :taggings
+  belongs_to :category, inverse_of: :posts
 
   def content_preview
     content.truncate(SETTINGS['post_preview_sign_length']).bbcode_to_html unless content.nil?
@@ -15,6 +16,11 @@ class Post < ApplicationRecord
 
   def self.latest(count = SETTINGS['count_of_posts_on_index_page'])
     limit(count)
+  end
+
+  # category section
+  def self.in_category(name)
+    Category.find_by_name!(name).posts
   end
 
   # tags section

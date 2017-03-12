@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label :category, t('.category'), :class => 'col-form-label' %>
+    <%= select :post, :category_id, Category.all.collect {|c| [ c.name, c.id ] }, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :title, t('.title'), :class => 'col-form-label' %>
     <%= f.text_field :title, :class => 'form-control' %>
   </div>

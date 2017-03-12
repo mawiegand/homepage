@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:tag]
+    if params[:category] && params[:tag]
+      @posts = Post.in_category(params[:category]).tagged_with(params[:tag])
+    elsif params[:category]
+      @posts = Post.in_category(params[:category])
+    elsif params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post.all
@@ -75,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :all_tags)
+      params.require(:post).permit(:title, :content, :category_id, :all_tags)
     end
 end
