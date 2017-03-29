@@ -29,6 +29,8 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 
 gem 'font-awesome-sass'
 
+gem 'piwik_analytics', :git => 'https://github.com/halfdan/piwik-ruby-tracking.git'
+
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
