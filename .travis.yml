@@ -1,16 +1,17 @@
 language: ruby
 rvm:
-  - 2.3.1
+- 2.3.1
 gemfile:
-  - Gemfile
+- Gemfile
 sudo: false
 script:
-  - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rails test
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rails test
 notifications:
   email:
   - marcel@bluepanel.org
-
+  slack:
+    secure: QnjApgOH9fhXiCm2B9awSRDNGL6SxO93MBR/AKSssyGkdhYLDjRUhXrZBlWUWczNXesvLyq70hdvGkXrpF+ur8YLS1wCZrKxTj2/1Dq6qtxLxO1fCjbh4LwzG134m7gV0H/XL8KwiD7RdP/S7ZVhvjfJ1inY7x9+BVRBQ1GTD/pCbMLlGYRQcqV2372bfkJV0B9cRF0/9NLuHyCyZw8hV7hN0wciesafp4bPorSA3rdiAVEn/aWPJdZssmTzSaFvHHGOvl5chkrS9Bj7S5s4NrHWl76unDPtj0NmnoXI1qPiEG8+eztcgF8tTIE7k9a1kKcugpsGOCpr9Yq+grhMylFnCc4mhLV+prnNlNwjz1rguuUNanUu7wdMz3g9u6paNxGJT5xT5HYJy/XPESzTfE/7hU34oimMqJcoj+lCv7LIShY3p3ch8xyarnj54apzqIp+usBJupOHYgnrzvhFoa9g/Qm7enIN20eUldphJrsftgrXggtngnMdl4bfPaQqHs8VVPD7m11DYKoRb+aKblhGSUbALlWJMRnKHjqfK4MZHB52ASmGAFBW4ORuKRkgoSHA9aHjs0Ak/0u38T9ihlNvFi8Rpan2egsUBXbnQZxQ8GK+MLNcZVWp+5Ef3BdIpVfRKGTRypNxh9El3R1/F29JAmVoil/jDW5wjH5JbhI=
 addons:
   code_climate:
     repo_token: b1924d24d05433e0be72b1aed6a199669e882b1061b5bd8fae581b6934311d30
