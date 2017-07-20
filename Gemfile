@@ -37,6 +37,8 @@ gem 'rolify'
 
 gem 'bb-ruby'
 
+gem 'jquery_bc_swipe'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
