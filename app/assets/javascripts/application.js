@@ -15,4 +15,5 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require jquery.bcSwipe
 //= require_tree .
