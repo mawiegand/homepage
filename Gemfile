@@ -56,8 +56,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
-gem 'codeclimate-test-reporter', group: :test, require: nil
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
@@ -69,6 +67,12 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'highline'
+end
+
+group :test do
+  # Codeclimate test coverage 
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

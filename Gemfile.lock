@@ -236,7 +236,7 @@ DEPENDENCIES
   cancancan
   capistrano-bundler
   capistrano-rails
-  codeclimate-test-reporter
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   devise
   font-awesome-sass
@@ -252,6 +252,7 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rolify
   sass-rails (~> 5.0)
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
