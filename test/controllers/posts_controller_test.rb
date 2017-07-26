@@ -5,6 +5,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:one)
     @admin = users(:administrator)
     @user = users(:user)
+    @category = categories(:cat1)
   end
 
   test "should get index" do
@@ -51,7 +52,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
 
     assert_difference('Post.count') do
-      post posts_url, params: { post: { content: @post.content, title: @post.title } }
+      post posts_url, params: { post: { content: @post.content, title: @post.title, category_id: @category.id } }
     end
 
     assert_redirected_to post_url(Post.first)
@@ -100,7 +101,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should update post" do
     sign_in @admin
 
-    patch post_url(@post), params: { post: { content: @post.content, title: @post.title } }
+    patch post_url(@post), params: { post: { content: @post.content, title: @post.title, category_id: @category.id } }
     assert_redirected_to post_url(@post)
   end
 
