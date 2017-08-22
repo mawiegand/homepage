@@ -18,7 +18,18 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
+@import url('https://fonts.googleapis.com/css?family=Frijole|Roboto');
+
 $card-color: #333;
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: 'Frijole', cursive;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .top-navbar {
   margin-bottom: 1rem!important;
