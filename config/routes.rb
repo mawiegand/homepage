@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   if SETTINGS['registration_is_enabled']
     devise_for :users
   else
