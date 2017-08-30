@@ -24,3 +24,6 @@
 
 coverage
 
+# Ignore uploaded user content.
+/public/uploads/ckeditor/*
+!/public/uploads/ckeditor/.keep

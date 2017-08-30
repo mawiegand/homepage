@@ -15,5 +15,6 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require ckeditor/init
 //= require jquery.bcSwipe
 //= require_tree .

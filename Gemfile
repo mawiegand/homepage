@@ -35,6 +35,12 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
+gem 'ckeditor'
+
+# File upload
+gem 'carrierwave'
+gem 'mini_magick'
+
 gem 'bb-ruby'
 
 gem 'jquery_bc_swipe'
