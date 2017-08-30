@@ -6,6 +6,17 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
   belongs_to :category, inverse_of: :posts
 
+  POST_BBCODE = {
+    'Justify' => [
+      /\[justify(:.+)?\](.*?)\[\/justify\1?\]/mi,
+      "<div style=\"text-align: justify;\">\\2</div>",
+      'Justifies contents',
+      '[justify]Justified content[/justify]',
+      :justify]
+  }
+
+  private_constant :POST_BBCODE
+
   def content_preview
     content.truncate(SETTINGS['post_preview_sign_length']).bbcode_to_html POST_BBCODE unless content.nil?
   end
@@ -41,14 +52,4 @@ class Post < ApplicationRecord
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
   end
-
-  private
-  POST_BBCODE = {
-      'Justify' => [
-          /\[justify(:.+)?\](.*?)\[\/justify\1?\]/mi,
-          "<div style=\"text-align: justify;\">\\2</div>",
-          'Justifies contents',
-          '[justify]Justified content[/justify]',
-          :justify]
-  }
 end
