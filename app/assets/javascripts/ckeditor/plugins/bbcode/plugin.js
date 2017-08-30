@@ -26,7 +26,7 @@
 		}
 	} );
 
-	var bbcodeMap = { b: 'strong', u: 'u', i: 'em', color: 'span', size: 'span', quote: 'blockquote', code: 'code', url: 'a', email: 'span', img: 'span', '*': 'li', list: 'ol' },
+	var bbcodeMap = { b: 'strong', u: 'u', i: 'em', color: 'span', size: 'span', quote: 'blockquote', code: 'code', url: 'a', email: 'span', img: 'span', '*': 'li', list: 'ol', left: 'div', center: 'div', right: 'div', justify: 'div' },
 		convertMap = { strong: 'b', b: 'b', u: 'u', em: 'i', i: 'i', code: 'code', li: '*' },
 		tagnameMap = { strong: 'b', em: 'i', u: 'u', li: '*', ul: 'list', ol: 'list', code: 'code', a: 'link', img: 'img', blockquote: 'quote' },
 		stylesMap = { color: 'color', size: 'font-size' },
@@ -155,7 +155,7 @@
 
 					// Two special handling - image and email, protect them
 					// as "span" with an attribute marker.
-					if ( part == 'email' || part == 'img' )
+					if ( part == 'email' || part == 'img' || part == 'left' || part == 'center' || part == 'right' || part == 'justify' )
 						attribs.bbcode = part;
 
 					this.onTagOpen( tagName, attribs, CKEDITOR.dtd.$empty[ tagName ] );
@@ -641,7 +641,27 @@
 							title: description,
 							alt: description
 						};
-					}
+					},
+          div: function( element ) {
+            var bbcode;
+            if ( ( bbcode = element.attributes.bbcode ) ) {
+              if ( bbcode == 'left' ) {
+                element.name = 'div';
+                element.attributes.style = 'text-align: left';
+              } else if ( bbcode == 'center' ) {
+                element.name = 'div';
+                element.attributes.style = 'text-align: center';
+              } else if ( bbcode == 'right' ) {
+                element.name = 'div';
+                element.attributes.style = 'text-align: right';
+              } else if ( bbcode == 'justify' ) {
+                element.name = 'div';
+                element.attributes.style = 'text-align: justify';
+              }
+
+              delete element.attributes.bbcode;
+            }
+          }
 				}
 			} );
 
@@ -666,6 +686,13 @@
 									tagName = 'size';
 								}
 							}
+            } else if ( tagName == 'div' ) {
+              if ( ( value = style[ 'text-align' ] ) ) {
+                if ( value == 'left' || value == 'center' || value == 'right' || value == 'justify' ) {
+                  tagName = value;
+                  value = '';
+                }
+              }
 						} else if ( tagName == 'ol' || tagName == 'ul' ) {
 							if ( ( value = style[ 'list-style-type' ] ) ) {
 								switch ( value ) {
@@ -775,7 +802,16 @@
 								name = 'size';
 							else if ( element.getStyle( 'color' ) )
 								name = 'color';
-						} else if ( name == 'img' ) {
+						} else if ( htmlName == 'div') {
+              if ( element.getStyle( 'text-align' ) == 'left')
+                name = 'left';
+              else if ( element.getStyle( 'text-align' ) == 'center')
+                name = 'center';
+              else if ( element.getStyle( 'text-align' ) == 'right')
+                name = 'right';
+              else if ( element.getStyle( 'text-align' ) == 'justify')
+                name = 'justify';
+            } else if ( name == 'img' ) {
 							var src = element.data( 'cke-saved-src' ) || element.getAttribute( 'src' );
 							if ( src && src.indexOf( editor.config.smiley_path ) === 0 )
 								name = 'smiley';
