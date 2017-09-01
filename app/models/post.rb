@@ -1,10 +1,15 @@
 class Post < ApplicationRecord
   resourcify
+
   validates_presence_of :title, :content
+
   default_scope { order('created_at DESC') }
+
   has_many :taggings
   has_many :tags, through: :taggings
   belongs_to :category, inverse_of: :posts
+
+  self.per_page = 5
 
   POST_BBCODE = {
     'Justify' => [

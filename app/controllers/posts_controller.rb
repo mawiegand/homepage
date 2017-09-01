@@ -7,13 +7,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:category] && params[:tag]
-      @posts = Post.in_category(params[:category]).tagged_with(params[:tag])
+      @posts = Post.in_category(params[:category]).tagged_with(params[:tag]).page(params[:page])
     elsif params[:category]
-      @posts = Post.in_category(params[:category])
+      @posts = Post.in_category(params[:category]).page(params[:page])
     elsif params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).page(params[:page])
     else
-      @posts = Post.all
+      @posts = Post.page(params[:page])
     end
   end
 

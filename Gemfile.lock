@@ -60,6 +60,8 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (~> 1.11.1)
       sass (>= 3.4.19)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (2.0.0)
@@ -238,6 +240,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.6)
 
 PLATFORMS
   ruby
@@ -245,6 +248,7 @@ PLATFORMS
 DEPENDENCIES
   bb-ruby
   bootstrap (~> 4.0.0.alpha3)
+  bootstrap-will_paginate
   byebug
   cancancan
   capistrano-bundler
