@@ -1,6 +1,6 @@
 <% title @post.title %>
 
-<article class="card card-inverse card-primary post-card">
+<article class="card post-card">
   <div class="card-header">
     <% if can? :manage, @post %>
       <div class="actions">
@@ -11,14 +11,14 @@
     <h1 class="card-title"><%= @post.title %></h1>
     <h2 class="card-subtitle text-muted">Submitted <%= @post.created_at.strftime("%d. %B %Y") %></h2>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <div class="card-text"><%= raw @post.content_with_bbcode_and_formatting %></div>
   </div>
   <footer class="card-footer">
     <small class="text-muted">Last updated <%= time_ago_in_words(@post.updated_at) %> ago</small>
     <div class="tags">
       <% @post.tags.each do |tag| %>
-        <%= link_to content_tag(:span, tag.name, class: ['tag', 'tag-pill', 'tag-default']), tag_path(tag.name) %>
+        <%= link_to content_tag(:span, tag.name, class: ['badge', 'badge-pill', 'badge-light']), tag_path(tag.name) %>
       <% end %>
     </div>
   </footer>

@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-md-4">
-    <div class="card card-inverse card-primary text-xs-center colored-card">
-      <div class="card-block">
-        <%= image_tag gravatar_url(SETTINGS['gravatar_email'], 140), class: 'img-circle center-block' %>
+  <div class="col-lg-4">
+    <div class="card text-center colored-card">
+      <div class="card-body">
+        <%= image_tag gravatar_url(SETTINGS['gravatar_email'], 140), class: 'rounded-circle' %>
       </div>
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">Marcel Wiegand</h4>
         <p class="card-text">I am a software developer and student of Computer Science.</p>
         <%= link_to 'About me', about_path, class: 'btn btn-outline-info' %>
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-lg-8">
     <div id="latest-posts" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <% @posts.each_with_index do |post, index| %>
@@ -29,12 +29,12 @@
           <%= content_tag(:div, render('posts/post_preview', post: post), class: ['carousel-item', index == 0 ? 'active' : nil]) %>
         <% end %>
       </div>
-      <a class="left carousel-control hidden-sm-down" href="#latest-posts" role="button" data-slide="prev">
-        <span class="icon-prev" aria-hidden="true"></span>
+      <a class="carousel-control-prev" href="#latest-posts" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control hidden-sm-down" href="#latest-posts" role="button" data-slide="next">
-        <span class="icon-next" aria-hidden="true"></span>
+      <a class="carousel-control-next" href="#latest-posts" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
