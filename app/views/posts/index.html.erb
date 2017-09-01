@@ -32,4 +32,8 @@
   </div>
 </div>
 
-<%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<div class="row">
+  <div class="col-lg-10">
+    <%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'd-flex justify-content-center' %>
+  </div>
+</div>
