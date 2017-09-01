@@ -10,9 +10,6 @@ set :repo_url, 'https://github.com/mawiegand/homepage.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/var/www/virtual/wiegand/rails/homepage'
 
-# Default value for :scm is :git
-set :scm, :git
-
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
