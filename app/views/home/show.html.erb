@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-lg-4">
     <div class="card text-center colored-card">
       <div class="card-body">
         <%= image_tag gravatar_url(SETTINGS['gravatar_email'], 140), class: 'rounded-circle' %>
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-lg-8">
     <div id="latest-posts" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <% @posts.each_with_index do |post, index| %>
