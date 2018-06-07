@@ -14,7 +14,7 @@
   <body>
     <%= render 'layouts/navigation' %>
 
-    <div id="site" class="container">
+    <div id="site" class="container <%= yield(:site_class) if content_for?(:site_class) %>">
       <%= flash_messages %>
         
       <%= yield %>

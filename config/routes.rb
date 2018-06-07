@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'posts/tags/:tag', to: 'posts#index', :as => 'tag'
   get 'posts/category/:category/tags/:tag', to: 'posts#index', :as => 'category_with_tag'
   get 'about' => 'static_pages#about', :as => 'about'
+  get 'imprint' => 'static_pages#imprint', :as => 'imprint'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
