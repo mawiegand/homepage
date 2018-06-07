@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def imprint
   end
+
+  def privacy_policy
+  end
 end

@@ -1,8 +1,11 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.imprint {
+.imprint, .privacy-policy {
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1rem;
   }
 }
