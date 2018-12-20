@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.8.2'
+lock '3.11.0'
 
 set :application, 'homepage'
 set :repo_url, 'https://github.com/mawiegand/homepage.git'
@@ -8,7 +8,7 @@ set :repo_url, 'https://github.com/mawiegand/homepage.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/virtual/wiegand/rails/homepage'
+set :deploy_to, '/home/mwiegand/rails/homepage'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -36,7 +36,7 @@ namespace :deploy do
   desc "Restart service"
   task :restart do
     on roles(:all) do
-      execute :svc, '-du ~/service/homepage'
+      execute :supervisorctl, 'restart homepage'
     end
   end
 end
