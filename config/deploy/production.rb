@@ -23,9 +23,9 @@ set :branch, 'master'
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{wiegand@schedar.uberspace.de}
-role :web, %w{wiegand@schedar.uberspace.de}
-role :db,  %w{wiegand@schedar.uberspace.de}, :primary => true
+role :app, %w{mwiegand@wiegand.space}
+role :web, %w{mwiegand@wiegand.space}
+role :db,  %w{mwiegand@wiegand.space}, :primary => true
 
 
 # Configuration
