@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '~> 2.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'font-awesome-sass'
 
@@ -36,7 +36,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
-gem 'ckeditor'
+gem 'ckeditor', '~> 4.2.4'
 
 # File upload
 gem 'carrierwave'
@@ -60,7 +60,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
