@@ -36,7 +36,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
-gem 'ckeditor'
+gem 'ckeditor', '~> 4.2.4'
 
 # File upload
 gem 'carrierwave'
@@ -60,7 +60,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
