@@ -53,10 +53,10 @@ source 'https://rails-assets.org' do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 1.1.4'
   
   # Use unicorn as the app server
-  gem 'unicorn'
+  gem 'unicorn', '~> 5.4.1'
 end
 
 group :development, :test do
