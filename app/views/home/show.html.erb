@@ -2,7 +2,12 @@
   <div class="col-lg-4">
     <div class="card text-center colored-card">
       <div class="card-body">
-        <%= image_tag gravatar_url(SETTINGS['gravatar_email'], 140), class: 'rounded-circle' %>
+        <%= gravatar_image_tag(SETTINGS['gravatar_email'].gsub('[at]', '@'),
+                               alt: SETTINGS['gravatar_alt'],
+                               class: 'rounded-circle',
+                               gravatar: { size: 140, secure: SETTINGS['gravatar_secure'] }
+                              )
+        %>
       </div>
       <div class="card-body">
         <h4 class="card-title">Marcel Wiegand</h4>

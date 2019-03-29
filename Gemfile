@@ -48,6 +48,8 @@ gem 'jquery_bc_swipe'
 
 gem 'bootstrap-will_paginate'
 
+gem 'gravatar_image_tag', '~> 1.2'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
